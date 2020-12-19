@@ -16,7 +16,7 @@ def image_proportional_scaling(image, max_size):
     else:
         new_w = max_size
         new_h = int((max_size / w) * h)
-    return image.remax_size((new_w, new_h), Image.BICUBIC)
+    return image.resize((new_w, new_h), Image.BICUBIC)
 
 
 def image_pad_to_square(image, pad_color=0):
