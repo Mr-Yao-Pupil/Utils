@@ -15,7 +15,11 @@ txt的数据格式
 
 
 def rand(a=0, b=1):
-    """生成随机数"""
+    """生成某个范围内的随机数
+    :param a:左区间起点
+    :param b:右区间起点
+    :return:随机数, float
+    """
     return np.random.rand() * (b - a) + a
 
 
@@ -91,19 +95,17 @@ def merge_bboxes(bboxes, cutx, cuty):
     return merge_bbox
 
 
-def get_random_data(annotation_line, input_shape, random=True, hue=.1, sat=1.5, val=1.5, proc_image=True,
+def get_random_data(annotation_line, input_shape, hue=.1, sat=1.5, val=1.5,
                     flip_probability=0.5):
     """
 
-    :param annotation_line:
+    :param annotation_line:传入读入txt之后的line列表
     :param input_shape: 数据增强后的图片尺寸, 数据类型为tuple
-    :param random:
-    :param hue:
-    :param sat:
-    :param val:
-    :param proc_image:
+    :param hue:色度的变化范围
+    :param sat:饱和度的变化范围
+    :param val:明度的变化范围
     :param flip_probability: 左右翻转图片的概率,输入为0~1之间, 数据类型为float
-    :return:
+    :returns:重新组合后的图片和实际框信息
     """
     h, w = input_shape
     min_offset_x = 0.4
@@ -199,7 +201,6 @@ def get_random_data(annotation_line, input_shape, random=True, hue=.1, sat=1.5, 
 
     new_boxes = merge_bboxes(box_datas, cutx, cuty)
     return new_image, new_boxes
-
 
 # def normal_(annotation_line, input_shape):
 #     line = annotation_line.split()
