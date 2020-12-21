@@ -15,9 +15,10 @@ txt的数据格式
 
 
 def rand(a=0, b=1):
-    """生成某个范围内的随机数
-    :param a:左区间起点
-    :param b:右区间起点
+    """
+    生成某个范围内的随机数, 可以允许左边大于右边
+    :param a:区间起点
+    :param b:区间终点
     :return:随机数, float
     """
     return np.random.rand() * (b - a) + a
