@@ -9,7 +9,7 @@ def find_outliers(model, X, y, sigma=3, savepath="outliers.png"):
     通过模型检测异常点，可以使用岭回归之类的分类模型
     :param model: 模型实例
     :param X: DataFrame，训练数据
-    :param y: DataFrame, 标签
+    :param y: Series, 标签
     :param sigma: 范围
     :param savepath: plt可视化的存储路径
     :return: 包含异常点信息的DataFrame
