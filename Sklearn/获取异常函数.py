@@ -15,6 +15,10 @@ def find_outliers(model, X, y, sigma=3, savepath="outliers.png"):
     :return: 包含异常点信息的DataFrame
     """
     # 建立模型预测的y值和模型预测的y值的Series
+    if not isinstance(X, pd.DataFrame):
+        raise ValueError(f'输入数据类型错误,参数X输入数据不支持{type(X)},输入数据类型应为DataFrame')
+    if not isinstance(y, pd.Series):
+        raise ValueError(f'输入数据类型错误,参数y输入数据不支持{type(y)},输入数据类型应为Series')
     try:
         y_pred = pd.Series(model.predict(X), index=y.index)
     except:
