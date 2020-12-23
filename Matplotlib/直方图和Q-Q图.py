@@ -12,7 +12,7 @@ def draw_one_Histogram_QQchart(data, issave=True, save_path="Histogram_QQchart.p
     :param save_path: 图片存储地址
     :return: None
     """
-    if isinstance(data, pd.Series):
+    if not isinstance(data, pd.Series):
         raise ValueError(f'输入数据类型错误,输入数据不支持{type(data)}, 输入数据类型应为Series')
     ax = plt.subplot(1, 2, 1)
     sns.distplot(data, fit=stats.norm)
@@ -32,7 +32,7 @@ def draw_all_Histogram_QQchart(data, data_cols, issave=True, save_path="Histogra
     :param save_path: 绘制结果的存储路径
     :return: None
     """
-    if isinstance(data, pd.DataFrame):
+    if not isinstance(data, pd.DataFrame):
         raise ValueError(f'输入数据类型错误,输入数据不支持{type(data)},输入数据类型应为DataFrame')
     data_rows = len(data.columns)
     plt.figure(figsize=(4 * data_cols, 4 * data_rows))
