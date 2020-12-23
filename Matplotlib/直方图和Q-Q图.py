@@ -23,7 +23,7 @@ def draw_one_Histogram_QQchart(data, issave=True, save_path="Histogram_QQchart.p
         plt.savefig(save_path)
 
 
-def draw_all_Histogram_QQchart(data, data_cols, issave=True, save_path="Histogram_QQchart.png"):
+def draw_all_Histogram_QQchart(data, data_cols=6, issave=True, save_path="Histogram_QQchart.png"):
     """
     绘制多条数据的直方图和QQ图
     :param data: DataFrame, 需要绘制数据的巨量
