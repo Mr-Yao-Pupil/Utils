@@ -4,13 +4,14 @@ from skimage.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
 
-def find_outliers(model, X, y, sigma=3, savepath="outliers.png"):
+def find_outliers(model, X, y, sigma=3, issave=False, savepath="outliers.png"):
     """
     通过模型检测异常点，可以使用岭回归之类的分类模型
     :param model: 模型实例
     :param X: DataFrame，训练数据
     :param y: Series, 标签
     :param sigma: 范围
+    :param issave: 是否保存绘制的图
     :param savepath: plt可视化的存储路径
     :return: 包含异常点信息的DataFrame
     """
@@ -55,7 +56,9 @@ def find_outliers(model, X, y, sigma=3, savepath="outliers.png"):
     z.loc[outliers].plot.hist(color='r', bins=50, ax=ax_133)
     plt.legend(['Accepted', 'outlier'])
     plt.xlabel('z')
-    plt.savefig(str(savepath))
+
+    if issave:
+        plt.savefig(str(savepath))
 
     # 返回其他异常点信息
     return pd.Series({"R2": model.score(X, y),
