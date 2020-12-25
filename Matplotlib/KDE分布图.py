@@ -56,4 +56,4 @@ def draw_all_KDEchart(train_data, test_data, dist_cols=6, issave=False, save_pat
         i += 1
     plt.show()
     if issave:
-        plt.savefig(save_path)
+        plt.savefig(str(save_path))
