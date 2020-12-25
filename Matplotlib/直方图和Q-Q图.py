@@ -51,4 +51,4 @@ def draw_all_Histogram_QQchart(data, data_cols=6, issave=False, save_path="Histo
     plt.tight_layout()
     plt.show()
     if issave:
-        plt.savefig(save_path)
+        plt.savefig(str(save_path))
