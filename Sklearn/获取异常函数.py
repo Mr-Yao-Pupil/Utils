@@ -55,7 +55,7 @@ def find_outliers(model, X, y, sigma=3, savepath="outliers.png"):
     z.loc[outliers].plot.hist(color='r', bins=50, ax=ax_133)
     plt.legend(['Accepted', 'outlier'])
     plt.xlabel('z')
-    plt.savefig(savepath)
+    plt.savefig(str(savepath))
 
     # 返回其他异常点信息
     return pd.Series({"R2": model.score(X, y),
