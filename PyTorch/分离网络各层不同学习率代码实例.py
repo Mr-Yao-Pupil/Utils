@@ -1,4 +1,5 @@
 # 以下代码用于修改不同层之间的网络参数并单独设定学习率，以及基于测量值修改学习率代码
+# model是实例化后的网络结构
 ignored_params1 = list(map(id, model.module.out_module.parameters()))
 ignored_params2 = list(map(id, model.module.classifier_swap.parameters()))
 ignored_params3 = list(map(id, model.module.Convmask.parameters()))
